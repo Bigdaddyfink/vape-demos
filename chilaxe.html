@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chilaxe Tobacco & Vape — Anderson's Most Unique Vape Shop | E Greenville St</title>
+<meta name="description" content="Chilaxe Tobacco & Vape on E Greenville St in Anderson, SC. Anderson's most uniquely themed vape shop. Sci-fi pop-culture vibes, full vape and tobacco selection, and a shopping experience unlike any other."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --void:#0A0F14;
+    --void-mid:#0F1820;
+    --void-light:#152030;
+    --portal:#00B5A3;
+    --portal-light:#00CCBA;
+    --portal-bright:#1FFBE8;
+    --electric:#39FF14;
+    --electric-dim:#28CC0E;
+    --cream:#EDFAF8;
+    --cream-dark:#D8F5F1;
+    --text-dark:#05181A;
+    --text-muted:#3A5A58;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,20,0.97);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,181,163,0.25)}
+  .nav-logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:0.03em}
+  .nav-logo span{color:var(--portal-bright)}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover{color:var(--portal-bright)}
+  .nav-cta{background:var(--portal);color:#fff;padding:0.5rem 1.25rem;border-radius:2px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;font-family:'Space Grotesk',sans-serif}
+  .nav-cta:hover{background:var(--portal-light);transform:translateY(-1px);box-shadow:0 0 20px rgba(0,181,163,0.5)}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    background:
+      url('chilaxe_hero.png') center center / cover no-repeat,
+      var(--void);
+    display:flex;align-items:center;justify-content:center;
+    padding:8rem 2rem 5rem;position:relative;overflow:hidden;text-align:center
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(to bottom,rgba(10,15,20,0.9) 0%,rgba(10,15,20,0.6) 45%,rgba(10,15,20,0.94) 100%),
+      radial-gradient(ellipse 60% 55% at 50% 45%,rgba(0,181,163,0.16) 0%,transparent 65%)
+  }
+  /* Scanline shimmer overlay */
+  .hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,181,163,0.025) 0px,rgba(0,181,163,0.025) 1px,transparent 1px,transparent 4px);pointer-events:none}
+
+  .hero-inner{max-width:840px;position:relative;z-index:1}
+
+  .vibe-badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--portal);color:var(--portal-bright);background:rgba(0,181,163,0.1);font-family:'Space Grotesk',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:2px;margin-bottom:1.75rem;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.1s;box-shadow:0 0 12px rgba(0,181,163,0.2)}
+
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.6rem,6.5vw,4.8rem);font-weight:700;line-height:1.08;color:#fff;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.25s;letter-spacing:-0.01em}
+  .hero h1 em{display:block;font-style:italic;font-family:'Playfair Display',serif;color:var(--portal-bright);text-shadow:0 0 30px rgba(0,204,186,0.5)}
+
+  .hero-sub{font-size:clamp(0.97rem,1.8vw,1.1rem);font-weight:300;color:rgba(255,255,255,0.55);max-width:530px;margin:1.5rem auto 0;line-height:1.85;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.4s}
+
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.5rem;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.55s}
+  .btn-primary{background:var(--portal);color:#fff;padding:0.9rem 2rem;border-radius:2px;font-weight:600;font-size:0.88rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid var(--portal);transition:all 0.2s;font-family:'Space Grotesk',sans-serif;box-shadow:0 0 20px rgba(0,181,163,0.3)}
+  .btn-primary:hover{background:var(--portal-light);border-color:var(--portal-light);transform:translateY(-2px);box-shadow:0 0 35px rgba(0,181,163,0.6)}
+  .btn-outline{background:transparent;color:#fff;padding:0.9rem 2rem;border-radius:2px;font-weight:500;font-size:0.88rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,0.2);transition:all 0.2s;font-family:'Space Grotesk',sans-serif}
+  .btn-outline:hover{border-color:var(--portal);color:var(--portal-bright)}
+
+  .hero-address{margin-top:3.5rem;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);opacity:0;animation:fadeUp 0.65s ease forwards 0.7s}
+  .hero-address span{color:rgba(0,181,163,0.45);margin:0 0.5rem}
+
+  /* VIBE STRIP */
+  .vibe-strip{background:var(--void-mid);border-top:1px solid rgba(0,181,163,0.2);border-bottom:1px solid rgba(0,181,163,0.2);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+  .vibe-pill{display:flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.6);font-size:0.8rem;font-weight:500;font-family:'Space Grotesk',sans-serif}
+  .vibe-dot{width:6px;height:6px;border-radius:50%;background:var(--portal);box-shadow:0 0 8px var(--portal)}
+
+  /* SHARED */
+  .section-label{text-align:center;font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--portal);margin-bottom:0.5rem;font-family:'Space Grotesk',sans-serif}
+  .portal-divider{width:48px;height:2px;background:linear-gradient(90deg,var(--portal),var(--portal-bright));margin:0 auto 1.5rem;box-shadow:0 0 8px rgba(0,181,163,0.5)}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:700;text-align:center;color:var(--void)}
+  .section-intro{text-align:center;max-width:520px;margin:1rem auto 0;color:var(--text-muted);line-height:1.8;font-size:0.97rem}
+
+  /* PRODUCTS */
+  .products{padding:7rem 2rem;background:var(--cream)}
+  .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.75rem;max-width:1060px;margin:3.5rem auto 0}
+  .product-card{background:#fff;border-radius:3px;padding:2.25rem 1.75rem;border-top:3px solid var(--portal);box-shadow:0 2px 18px rgba(10,15,20,0.08);transition:transform 0.25s,box-shadow 0.25s}
+  .product-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(0,181,163,0.15)}
+  .product-icon{width:46px;height:46px;background:var(--void);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem;box-shadow:0 0 12px rgba(0,181,163,0.3)}
+  .product-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--void);margin-bottom:0.6rem}
+  .product-card p{color:var(--text-muted);line-height:1.7;font-size:0.93rem}
+
+  /* VIBE SECTION */
+  .vibe{padding:7rem 2rem;background:var(--void);position:relative;overflow:hidden}
+  .vibe::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,181,163,0.02) 0px,rgba(0,181,163,0.02) 1px,transparent 1px,transparent 4px);pointer-events:none}
+  .vibe::after{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,181,163,0.08) 0%,transparent 65%);pointer-events:none}
+  .vibe-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1}
+  .vibe .section-label{color:var(--portal-bright)}
+  .vibe .section-title{color:#fff;font-size:clamp(1.75rem,3.5vw,2.6rem)}
+  .vibe-body{color:rgba(255,255,255,0.6);font-size:1.05rem;font-weight:300;line-height:1.9;margin:1.5rem 0 2.5rem}
+  .vibe-body strong{color:var(--portal-bright);font-weight:600}
+  .vibe-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(0,181,163,0.18)}
+  .feat{background:rgba(0,181,163,0.07);border:1px solid rgba(0,181,163,0.18);border-radius:3px;padding:1.4rem;text-align:center;transition:all 0.2s}
+  .feat:hover{background:rgba(0,181,163,0.12);border-color:rgba(0,181,163,0.4);box-shadow:0 0 20px rgba(0,181,163,0.15)}
+  .feat-icon{font-size:1.75rem;margin-bottom:0.6rem}
+  .feat h4{font-family:'Space Grotesk',sans-serif;font-size:0.92rem;font-weight:700;color:var(--portal-bright);margin-bottom:0.3rem}
+  .feat p{color:rgba(255,255,255,0.42);font-size:0.8rem;line-height:1.6}
+
+  /* TESTIMONIALS */
+  .testimonials{padding:7rem 2rem;background:var(--cream-dark)}
+  .testimonials .section-title{color:var(--void)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1060px;margin:3.5rem auto 0}
+  .review-card{background:#fff;border-radius:3px;padding:2rem;box-shadow:0 2px 16px rgba(10,15,20,0.07);position:relative;border-left:3px solid var(--portal)}
+  .review-quote{font-size:3.5rem;font-family:'Playfair Display',serif;color:var(--portal);opacity:0.18;line-height:1;position:absolute;top:0.75rem;left:1.25rem}
+  .review-stars{color:var(--portal);font-size:0.85rem;margin-bottom:0.75rem}
+  .review-card p{color:var(--text-dark);font-size:0.93rem;line-height:1.75;font-style:italic;margin-top:0.5rem}
+  .review-author{margin-top:1rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--void);font-family:'Space Grotesk',sans-serif}
+
+  /* FINAL CTA */
+  .final-cta{padding:7rem 2rem;background:var(--void);text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 65% at 50% 50%,rgba(0,181,163,0.12) 0%,transparent 68%)}
+  .final-cta-inner{position:relative;z-index:1}
+  .final-cta h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:#fff;max-width:680px;margin:0 auto 1rem;line-height:1.2;letter-spacing:-0.01em}
+  .final-cta h2 em{font-style:italic;font-family:'Playfair Display',serif;color:var(--portal-bright);text-shadow:0 0 25px rgba(0,204,186,0.5)}
+  .final-cta p{color:rgba(255,255,255,0.5);font-size:1rem;max-width:420px;margin:0 auto 2.5rem;line-height:1.75}
+  .contact-row{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(0,181,163,0.18)}
+  .contact-item{text-align:center}
+  .contact-item strong{display:block;font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--portal-bright);margin-bottom:0.3rem;font-family:'Space Grotesk',sans-serif}
+  .contact-item span{color:rgba(255,255,255,0.55);font-size:0.9rem}
+
+  footer{background:var(--void);border-top:1px solid rgba(0,181,163,0.12);padding:1.5rem 2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:0.72rem;letter-spacing:0.05em}
+
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:0.1s}
+  .reveal-delay-2{transition-delay:0.2s}
+  .reveal-delay-3{transition-delay:0.3s}
+
+  @media(max-width:640px){
+    nav{padding:1rem}
+    .nav-links{display:none}
+    .vibe-strip{gap:1.25rem}
+    .hero,.products,.vibe,.testimonials,.final-cta{padding-left:1.5rem;padding-right:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Chil<span>axe</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#vibe">The Vibe</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="tel:+18643297456" class="nav-cta">Call Us</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="vibe-badge">🛸 Anderson's Most Uniquely Themed Vape Shop</div>
+    <h1>Anderson's Coolest<br/><em>Vape Experience.</em></h1>
+    <p class="hero-sub">Chilaxe Tobacco & Vape on E Greenville St is unlike any other shop in Anderson. Sci-fi pop-culture themed decor, full vape and tobacco selection, and an atmosphere that makes you want to stay and explore. Come for the gear. Stay for the vibe.</p>
+    <div class="hero-actions">
+      <a href="https://maps.google.com/?q=1915+E+Greenville+St+Anderson+SC+29621" target="_blank" class="btn-primary" id="hero-directions-btn">Get Directions</a>
+      <a href="tel:+18643297456" class="btn-outline" id="hero-call-btn">Call (864) 329-7456</a>
+    </div>
+    <div class="hero-address">1915 E Greenville St <span>·</span> Anderson, SC 29621 <span>·</span> (864) 329-7456</div>
+  </div>
+</section>
+
+<div class="vibe-strip">
+  <div class="vibe-pill"><span class="vibe-dot"></span>Sci-Fi Themed Decor</div>
+  <div class="vibe-pill"><span class="vibe-dot"></span>Full Vape & Tobacco</div>
+  <div class="vibe-pill"><span class="vibe-dot"></span>E Greenville St, Anderson</div>
+  <div class="vibe-pill"><span class="vibe-dot"></span>One-of-a-Kind Shop</div>
+</div>
+
+<section class="products" id="products">
+  <p class="section-label reveal">What We Carry</p>
+  <div class="portal-divider reveal"></div>
+  <h2 class="section-title reveal">Serious Selection.<br/>Unforgettable Atmosphere.</h2>
+  <p class="section-intro reveal">Chilaxe is fully stocked — vape devices, e-liquids, tobacco, and accessories. But the shop experience is what customers come back to tell their friends about.</p>
+  <div class="products-grid">
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-icon">🚀</div>
+      <h3>Vape Devices & E-Liquids</h3>
+      <p>Pod systems, disposables, mods, and a wide range of e-liquids. A full vape selection wrapped in Anderson's most unique shopping experience.</p>
+    </div>
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-icon">🌿</div>
+      <h3>Tobacco & Cigars</h3>
+      <p>Cigarettes, cigars, loose leaf and more. Chilaxe covers the full tobacco range — everything you need, in a shop that makes the errand actually enjoyable.</p>
+    </div>
+    <div class="product-card reveal reveal-delay-3">
+      <div class="product-icon">🎮</div>
+      <h3>Accessories & Gear</h3>
+      <p>Coils, batteries, lighters, papers, and everything your setup needs. A well-stocked accessories selection in a shop that takes the experience seriously.</p>
+    </div>
+  </div>
+</section>
+
+<section class="vibe" id="vibe">
+  <div class="vibe-inner">
+    <p class="section-label reveal">The Chilaxe Vibe</p>
+    <div class="portal-divider reveal"></div>
+    <h2 class="section-title reveal">Anderson Has Never Seen<br/>a Shop Like This.</h2>
+    <p class="vibe-body reveal">
+      Walk into Chilaxe and you know immediately — this isn't your average tobacco counter. <strong>Sci-fi pop-culture themed decor</strong> sets the atmosphere from the moment you step through the door. It's a shop that has its own identity, its own energy.<br/><br/>
+      That kind of <strong>bold, distinctive character</strong> is exactly what Anderson's vape scene has been missing. Chilaxe delivers — on product selection and on experience.
+    </p>
+    <div class="vibe-features reveal">
+      <div class="feat">
+        <div class="feat-icon">🛸</div>
+        <h4>Sci-Fi Themed</h4>
+        <p>Pop-culture decor you won't find anywhere else in Anderson.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🧬</div>
+        <h4>Unique Identity</h4>
+        <p>A shop with personality. Not a generic chain, not a corner store. Chilaxe is its own thing.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⭐</div>
+        <h4>Good Vibes</h4>
+        <p>Friendly staff, great selection, and an atmosphere worth coming back to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <p class="section-label reveal">What Customers Say</p>
+  <div class="portal-divider reveal"></div>
+  <h2 class="section-title reveal">Anderson's Most Talked-About<br/>Vape Shop</h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>The decor alone is worth the trip. I went in expecting a regular vape shop and came out genuinely impressed. Great selection, fair prices, and the theming is amazing — feels like nowhere else in Anderson.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>Chilaxe is something else. The sci-fi vibe is executed really well and the staff matches the energy. Good inventory, knowledgeable about products, and it's just a fun place to shop. My kind of spot.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>Sent my friend here and now he won't stop talking about it. Great vape selection, unique atmosphere you don't expect from a shop on Greenville St. Worth every bit of the drive.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="visit">
+  <div class="final-cta-inner">
+    <h2>Anderson's Most Unique<br/><em>Vape Shop.</em></h2>
+    <p>1915 E Greenville St in Anderson — sci-fi themed, fully stocked, and unlike anything else in the area. Come see what everyone's talking about.</p>
+    <div class="hero-actions" style="opacity:1;transform:none;">
+      <a href="https://maps.google.com/?q=1915+E+Greenville+St+Anderson+SC+29621" target="_blank" class="btn-primary" id="cta-directions-btn">Get Directions</a>
+      <a href="tel:+18643297456" class="btn-outline" id="cta-call-btn">Call (864) 329-7456</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-item"><strong>Address</strong><span>1915 E Greenville St, Anderson, SC 29621</span></div>
+      <div class="contact-item"><strong>Phone</strong><span>(864) 329-7456</span></div>
+      <div class="contact-item"><strong>Vibe</strong><span>🛸 Sci-fi themed · One of a kind</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Chilaxe Tobacco &amp; Vape &nbsp;·&nbsp; 1915 E Greenville St, Anderson, SC &nbsp;·&nbsp; Anderson's most uniquely themed vape shop</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*90);});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

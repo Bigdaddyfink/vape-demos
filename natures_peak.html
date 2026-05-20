@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Natures Peak Tobacco & Vape — Anderson's Drive-Thru Vape Shop</title>
+<meta name="description" content="Natures Peak Tobacco & Vape on Shockley Ferry Rd in Anderson, SC. Anderson's only drive-through tobacco and vape shop. Pull up, pick up, keep moving."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --pine:#142214;
+    --pine-mid:#1C301C;
+    --pine-light:#24402A;
+    --mint:#3DBF82;
+    --mint-light:#52D498;
+    --mint-bright:#6FEAAE;
+    --cream:#F3F0E8;
+    --cream-dark:#E8E3D8;
+    --text-dark:#111811;
+    --text-muted:#556055;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,34,20,0.97);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(61,191,130,0.2)}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:0.01em}
+  .nav-logo span{color:var(--mint-light)}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover{color:var(--mint-bright)}
+  .nav-cta{background:var(--mint);color:var(--pine);padding:0.5rem 1.25rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+  .nav-cta:hover{background:var(--mint-light);transform:translateY(-1px)}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    background:
+      url('natures_peak_hero.png') center center / cover no-repeat,
+      var(--pine);
+    display:flex;align-items:center;justify-content:center;
+    padding:8rem 2rem 5rem;position:relative;overflow:hidden;text-align:center
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(to bottom,rgba(20,34,20,0.85) 0%,rgba(20,34,20,0.65) 45%,rgba(20,34,20,0.90) 100%),
+      radial-gradient(ellipse 55% 50% at 50% 40%,rgba(61,191,130,0.14) 0%,transparent 65%)
+  }
+  .hero-inner{max-width:820px;position:relative;z-index:1}
+
+  /* Drive-thru badge */
+  .drive-thru-badge{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    background:var(--mint);color:var(--pine);
+    font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+    padding:0.4rem 1.1rem;border-radius:1px;margin-bottom:1.75rem;
+    opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.1s
+  }
+  .drive-thru-badge::before{content:'🚗';font-size:0.9rem;letter-spacing:0}
+
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:700;line-height:1.08;color:#fff;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.25s}
+  .hero h1 em{display:block;font-style:italic;color:var(--mint-light)}
+
+  .hero-sub{font-size:clamp(0.97rem,1.8vw,1.12rem);font-weight:300;color:rgba(255,255,255,0.58);max-width:520px;margin:1.5rem auto 0;line-height:1.85;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.4s}
+
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.5rem;opacity:0;transform:translateY(14px);animation:fadeUp 0.65s ease forwards 0.55s}
+  .btn-primary{background:var(--mint);color:var(--pine);padding:0.9rem 2rem;border-radius:2px;font-weight:700;font-size:0.88rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid var(--mint);transition:all 0.2s}
+  .btn-primary:hover{background:var(--mint-light);border-color:var(--mint-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(61,191,130,0.4)}
+  .btn-outline{background:transparent;color:#fff;padding:0.9rem 2rem;border-radius:2px;font-weight:500;font-size:0.88rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,0.22);transition:all 0.2s}
+  .btn-outline:hover{border-color:rgba(255,255,255,0.55)}
+
+  .hero-address{margin-top:3.5rem;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);opacity:0;animation:fadeUp 0.65s ease forwards 0.7s}
+  .hero-address span{color:rgba(61,191,130,0.5);margin:0 0.5rem}
+
+  /* DRIVE-THRU HIGHLIGHT STRIP */
+  .dt-strip{background:var(--pine-mid);border-top:1px solid rgba(61,191,130,0.25);border-bottom:1px solid rgba(61,191,130,0.25);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+  .dt-pill{display:flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.7);font-size:0.82rem;font-weight:500}
+  .dt-dot{width:6px;height:6px;border-radius:50%;background:var(--mint)}
+
+  /* SHARED */
+  .section-label{text-align:center;font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--mint);margin-bottom:0.5rem}
+  .mint-divider{width:48px;height:2px;background:var(--mint);margin:0 auto 1.5rem}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.6rem);font-weight:700;text-align:center;color:var(--pine)}
+  .section-intro{text-align:center;max-width:520px;margin:1rem auto 0;color:var(--text-muted);line-height:1.8;font-size:0.97rem}
+
+  /* SERVICES */
+  .services{padding:7rem 2rem;background:var(--cream)}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.75rem;max-width:1060px;margin:3.5rem auto 0}
+  .service-card{background:#fff;border-radius:3px;padding:2.25rem 1.75rem;border-left:3px solid var(--mint);box-shadow:0 2px 18px rgba(20,34,20,0.07);transition:transform 0.25s,box-shadow 0.25s}
+  .service-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(20,34,20,0.13)}
+  .service-icon{width:46px;height:46px;background:var(--pine);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem}
+  .service-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--pine);margin-bottom:0.6rem}
+  .service-card p{color:var(--text-muted);line-height:1.7;font-size:0.93rem}
+
+  /* DRIVE-THRU FEATURE */
+  .dt-feature{padding:7rem 2rem;background:var(--pine);position:relative;overflow:hidden}
+  .dt-feature::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border:1px solid rgba(61,191,130,0.1);border-radius:50%;pointer-events:none}
+  .dt-feature-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  @media(max-width:700px){.dt-feature-inner{grid-template-columns:1fr;gap:2.5rem;text-align:center}}
+  .dt-feature .section-label{text-align:left;color:var(--mint-light)}
+  @media(max-width:700px){.dt-feature .section-label{text-align:center}}
+  .dt-feature .mint-divider{margin:0 0 1.5rem}
+  @media(max-width:700px){.dt-feature .mint-divider{margin:0 auto 1.5rem}}
+  .dt-feature h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1.25rem}
+  .dt-feature h2 em{font-style:italic;color:var(--mint-light)}
+  .dt-feature-body{color:rgba(255,255,255,0.65);font-size:1rem;font-weight:300;line-height:1.9}
+  .dt-feature-body strong{color:var(--mint-light);font-weight:600}
+  .dt-steps{display:flex;flex-direction:column;gap:1.25rem}
+  .dt-step{display:flex;align-items:flex-start;gap:1rem;background:rgba(61,191,130,0.07);border:1px solid rgba(61,191,130,0.18);border-radius:3px;padding:1.25rem}
+  .dt-step-num{width:32px;height:32px;min-width:32px;background:var(--mint);color:var(--pine);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem}
+  .dt-step-text h4{color:#fff;font-size:0.92rem;font-weight:600;margin-bottom:0.2rem}
+  .dt-step-text p{color:rgba(255,255,255,0.5);font-size:0.83rem;line-height:1.6}
+
+  /* TESTIMONIALS */
+  .testimonials{padding:7rem 2rem;background:var(--cream-dark)}
+  .testimonials .section-title{color:var(--pine)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1060px;margin:3.5rem auto 0}
+  .review-card{background:#fff;border-radius:3px;padding:2rem;box-shadow:0 2px 16px rgba(20,34,20,0.07);position:relative}
+  .review-quote{font-size:3.5rem;font-family:'Playfair Display',serif;color:var(--mint);opacity:0.18;line-height:1;position:absolute;top:0.75rem;left:1.25rem}
+  .review-stars{color:var(--mint);font-size:0.85rem;margin-bottom:0.75rem}
+  .review-card p{color:var(--text-dark);font-size:0.93rem;line-height:1.75;font-style:italic;margin-top:0.5rem}
+  .review-author{margin-top:1rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--pine)}
+
+  /* FINAL CTA */
+  .final-cta{padding:7rem 2rem;background:var(--pine);text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 65% at 50% 50%,rgba(61,191,130,0.1) 0%,transparent 70%)}
+  .final-cta-inner{position:relative;z-index:1}
+  .final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:#fff;max-width:680px;margin:0 auto 1rem;line-height:1.2}
+  .final-cta h2 em{font-style:italic;color:var(--mint-light)}
+  .final-cta p{color:rgba(255,255,255,0.52);font-size:1rem;max-width:420px;margin:0 auto 2.5rem;line-height:1.75}
+  .contact-row{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(61,191,130,0.18)}
+  .contact-item{text-align:center}
+  .contact-item strong{display:block;font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mint-light);margin-bottom:0.3rem}
+  .contact-item span{color:rgba(255,255,255,0.55);font-size:0.9rem}
+
+  footer{background:var(--pine);border-top:1px solid rgba(61,191,130,0.12);padding:1.5rem 2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:0.72rem;letter-spacing:0.05em}
+
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:0.1s}
+  .reveal-delay-2{transition-delay:0.2s}
+  .reveal-delay-3{transition-delay:0.3s}
+
+  @media(max-width:640px){
+    nav{padding:1rem}
+    .nav-links{display:none}
+    .dt-strip{gap:1.25rem}
+    .hero,.services,.dt-feature,.testimonials,.final-cta{padding-left:1.5rem;padding-right:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Natures <span>Peak</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Products</a></li>
+    <li><a href="#drive-thru">Drive-Thru</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="tel:+18645551234" class="nav-cta">Call Us</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="drive-thru-badge">Anderson's Only Drive-Thru Vape Shop</div>
+    <h1>Pull Up. Pick Up.<br/><em>Keep Moving.</em></h1>
+    <p class="hero-sub">Natures Peak is the only tobacco and vape shop in Anderson with a drive-through. No parking hunt, no waiting in line — just pull up to the window and get what you need.</p>
+    <div class="hero-actions">
+      <a href="https://maps.google.com/?q=160+E+Shockley+Ferry+Rd+Anderson+SC+29624" target="_blank" class="btn-primary" id="hero-directions-btn">Get Directions</a>
+      <a href="tel:+18645551234" class="btn-outline" id="hero-call-btn">Call Us</a>
+    </div>
+    <div class="hero-address">160 E Shockley Ferry Rd <span>·</span> Anderson, SC 29624</div>
+  </div>
+</section>
+
+<div class="dt-strip">
+  <div class="dt-pill"><span class="dt-dot"></span>Drive-Thru Available</div>
+  <div class="dt-pill"><span class="dt-dot"></span>No Need to Park</div>
+  <div class="dt-pill"><span class="dt-dot"></span>Tobacco & Vape</div>
+  <div class="dt-pill"><span class="dt-dot"></span>Anderson, SC</div>
+</div>
+
+<section class="services" id="services">
+  <p class="section-label reveal">What We Carry</p>
+  <div class="mint-divider reveal"></div>
+  <h2 class="section-title reveal">Everything You Need.<br/>In and Out in Minutes.</h2>
+  <p class="section-intro reveal">Full selection of tobacco, vape products, and accessories — available at the counter or straight from the drive-through window.</p>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">🌿</div>
+      <h3>Premium Tobacco</h3>
+      <p>Cigars, cigarettes, pipe tobacco, and loose leaf. Quality selection you can grab on the go — right from the drive-thru window without leaving your car.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">💨</div>
+      <h3>Vape Devices & E-Liquids</h3>
+      <p>Pod systems, disposables, mods, and a wide range of e-liquids. Stocked and ready — no ordering ahead, no waiting for shipping.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">🛍️</div>
+      <h3>Smoking Accessories</h3>
+      <p>Lighters, papers, grinders, and everything in between. One quick stop on Shockley Ferry Rd and you're back on the road.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dt-feature" id="drive-thru">
+  <div class="dt-feature-inner">
+    <div>
+      <p class="section-label reveal">The Drive-Thru Difference</p>
+      <div class="mint-divider reveal"></div>
+      <h2 class="reveal">Anderson's Only<br/><em>Drive-Thru Vape Stop.</em></h2>
+      <p class="dt-feature-body reveal">
+        Every other shop in Anderson makes you park, walk in, and wait. Natures Peak gives you a <strong>faster option</strong> — pull up to the window and you're done.<br/><br/>
+        Perfect for your lunch break, your commute home, or any time you just <strong>need to grab and go</strong>.
+      </p>
+    </div>
+    <div class="dt-steps reveal">
+      <div class="dt-step">
+        <div class="dt-step-num">1</div>
+        <div class="dt-step-text">
+          <h4>Pull Up to the Window</h4>
+          <p>No parking, no walking in. Just roll up to the drive-thru lane.</p>
+        </div>
+      </div>
+      <div class="dt-step">
+        <div class="dt-step-num">2</div>
+        <div class="dt-step-text">
+          <h4>Tell Us What You Need</h4>
+          <p>Our staff knows the products and will get you sorted fast.</p>
+        </div>
+      </div>
+      <div class="dt-step">
+        <div class="dt-step-num">3</div>
+        <div class="dt-step-text">
+          <h4>Pay &amp; Go</h4>
+          <p>In your hand and on your way — faster than any other vape shop in town.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <p class="section-label reveal">What Customers Say</p>
+  <div class="mint-divider reveal"></div>
+  <h2 class="section-title reveal">The Easiest Vape Stop<br/>in Anderson</h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>The drive-through is such a game changer. I can swing by on my lunch break and be back before anyone notices I was gone. No other shop in Anderson can say that.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>Didn't even know this place had a drive-thru until a friend told me. Now it's the only place I go. Good prices, fast service, and I never have to get out of my car.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p>They always have what I need and the drive-thru makes it so convenient. On rainy days especially this is worth the trip. Friendly staff too.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="visit">
+  <div class="final-cta-inner">
+    <h2>No Parking.<br/><em>Just Pull Up.</em></h2>
+    <p>160 E Shockley Ferry Rd in Anderson — the only drive-through tobacco and vape shop in the area. Come through anytime.</p>
+    <div class="hero-actions" style="opacity:1;transform:none;">
+      <a href="https://maps.google.com/?q=160+E+Shockley+Ferry+Rd+Anderson+SC+29624" target="_blank" class="btn-primary" id="cta-directions-btn">Get Directions</a>
+      <a href="tel:+18645551234" class="btn-outline" id="cta-call-btn">Call Us</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-item"><strong>Address</strong><span>160 E Shockley Ferry Rd, Anderson, SC 29624</span></div>
+      <div class="contact-item"><strong>Drive-Thru</strong><span>Available — no need to park</span></div>
+      <div class="contact-item"><strong>Hours</strong><span>Call to confirm current hours</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Natures Peak Tobacco &amp; Vape &nbsp;·&nbsp; 160 E Shockley Ferry Rd, Anderson, SC &nbsp;·&nbsp; Anderson's only drive-thru vape shop</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*90);});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
